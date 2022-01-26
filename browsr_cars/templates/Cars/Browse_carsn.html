@@ -1,0 +1,201 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static './Css/browse.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Browse cars</title>
+</head>
+<body>
+
+    <div class="imge">
+        <img style="width: 100%; height: 210rem;" src="{% static './imges/road2.webp'%}" alt="img_road">
+    </div>
+
+    <div class="contner">
+
+        <section class="section1">
+            <nav class="nav">
+                <header>
+
+                    <ul class="nav_header">
+                        <li><a href="{% url 'home:home'  %}">Home</a> </li>
+                        <li><a href="#">Browse thecars </a> </li>
+                        <li><a href="{% url 'contact_us:contact'  %}">contact us</a> </li>
+                        <li><a href="#">portfolio</a> </li>
+                        <li><a href="{% url 'abuot_team:All_employds'  %}">cabout team</a> </li>
+                        <li><a href="#">contact us</a> </li>
+                         <li><a href="#">Login</a> </li>
+                    </ul>
+                
+                </header>
+            </nav>
+        </section>
+        <section class="section2">
+            <div class="section2_div">
+                <img src="{%static './imges//cont_imge/tndara.jpg'%}">
+            </div>
+            <div class="hder_titile">
+                <h2>2020 Toyota Hilux </h2>
+                <h4>Double Cab VIII (facelift 2020)<br> 2.4 D-4D (150 Hp) 4x4</h4>
+            </div>
+
+            <div class="hder_titile_coler">
+                <h1> welcome on cars shoping </h1>
+            </div>
+        </section>
+        <section class="section22">
+            <div class="section22_top" style="height: 30%;">
+                <div class="top_1">
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="top_2">
+                    <div class="img"   style="width: 100%; height: 100%;">
+                        <img src=" {% static './imges/cont_imge/marsedes.jpg'%}"  style="width: 100%; height: 90%;" alt="tyoto car home">
+                    </div>
+                </div>
+                <div class="top_opslot"></div>
+
+            </div>
+
+            <div class="section22_down " style="height: 70%;">
+                <div class="card-columns">
+
+                    {% for i in  all%}
+                        <div class="card">
+                        <img class="card-img-top" src="{{i.images.url}}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{i.brand}}</h5>
+                          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                          <a href="{% url 'cars:car_detiles' i.id %}"  id ="btn-primary" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    
+                    
+                   
+
+                    
+                </div>
+            </div>
+
+            <div class="progras">
+                <div class="itme_progras">
+
+
+                    {% if all.has_previous %}
+                        <li><a href="?page={{ all.previous_page_number }}"> <i >back</i> </a></li>
+                    {% endif %}
+                    {% for i in all.paginator.page_range %}
+                        <li><a href="?page={{i}}"><span>{{i}}</span></a></li>
+                    {% endfor %}
+                                                
+                    {% if all.has_next %}
+                        <li><a href="?page={{ all.paginator.num_pages }}"> <i >next</i> </a></li>
+                    {%endif%}
+
+                </div>
+            </div>
+
+        </section>
+
+       
+       
+       
+        <section class="section6">
+            <div class="card" style="width: 18rem;">
+                <h4>abuot tems</h4>
+                <ul>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                </ul> 
+            </div>
+            <div class="card" style="width: 18rem;">
+                <h4>contact us</h4>
+                <ul>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                </ul> 
+                
+            </div>
+              <div class="card" style="width: 18rem;">
+                <h4>about us</h4>
+                <ul>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                </ul>                 
+            </div>
+            <div class="card" style="width: 18rem;">
+                <h4>Create by beko</h4>
+                <ul>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                    <li>Coffee</li>
+                     <li>Tea</li>
+                    <li>Milk</li>
+                </ul> 
+
+            </div>
+            
+        </section>
+
+    </div>
+
+    
+   
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
