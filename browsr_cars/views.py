@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Cars
 from django.core.paginator import Paginator
 
@@ -24,6 +24,19 @@ def car_detiles(request, id):
 
 
     return render(request, './Cars/car_detelis.html', {'all':job_lists, 'all_car':all_car})
+
+
+
+def car_delete(request, id):
+       
+    job_lists = Cars.objects.get(id=id)
+    if request.method == "POST":
+         job_lists.delete()
+         return redirect('cars:all_cars')
+         
+
+    return render(request, './Cars/delet.html', {'all':job_lists})
+
 
 
 
