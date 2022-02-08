@@ -1,0 +1,16 @@
+
+Django==2.2.24
+django-bootstrap-v5==1.0.8
+django-bootstrap4==21.2
+django-crontab==0.7.1
+django-dbbackup==3.3.0
+django-filter==21.1
+djangorestframework==3.13.1
+duplicity==0.8.20
+fasteners==0.14.1
+future==0.18.2
+gunicorn==20.1.0
+httplib2==0.18.1
+
+Pillow==8.1.2
+
